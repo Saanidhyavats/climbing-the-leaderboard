@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{ int a,b,i,e;
+  printf("Enter the number");
+  scanf("%d",&a);    //Asking the user to enter the number of players whose score will be taken in  leader board
+  int c[a+1],l[a+1];
+  l[a]=1;
+  for(i=0;i<a;i++)
+   printf("Enter the scores");
+   scanf("%d",&c[i]);          //Taking the scores of each player
+   printf("Enter the data");
+   scanf("%d",&b);      //Number of games played by  xyz will be entered by user 
+   int d[b],m[b];
+   for(i=0;i<b;i++)
+   printf("Enter the score of xyz);
+   scanf("%d",&d[i]);   //User is entering the score of xyz in each chance
+   c[a]=c[a-1];
+  for(i=0;i<a;i++)
+  { if(c[i]==c[i+1])
+     l[i]=l[i+1];
+     else
+    l[i]=a-i-1;}
+    for(e=0;e<b;e++)
+    {for(i=a-1;i>=0;i--)
+      {if(d[e]<c[i])
+       m[b]=l[i]+1;
+       break;}}
+       for(i=0;i<b;i++)
+       printf("%d\n",m[i]);    // printing the rank of person xyz according to leaderboard
+}
+  
